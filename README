@@ -20,7 +20,7 @@ I did this just for a bit more security.
 * Updating adding item to list, done column to true or false setting
 * Hosting website
 * Putting my server and database on the Google cloud services
-
+* adding docker swarm to my project, to keep my server up.
 
 ## Future Plans
 * Putting a background and making website more apealing
@@ -31,4 +31,18 @@ I did this just for a bit more security.
 
 
 ## Dependencies
-dependency - "reason"
+
+Morgan- I'm going to be using Morgan for my middlware, to use when I have errors and sending
+information to me and my server, when an error occors. This way it will give me information about what happened, and the server status.
+
+Express-session - I used express sessions to keep the user logged into the web application as they were accessing their lists, and their homepage.
+ 
+Pg - I used pg to connect to my postgress server from my node.js server. This helped me access queries by also having
+the ability to pick a user, password, where I could then limit what that user could do for security reasons. 
+
+
+
+
+
+
+
