@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  todo-list:
+    build: .
+    ports:
+      - '3001:3001'
+    restart: always
+
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    env_file:
+      - ./.env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+

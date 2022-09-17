@@ -1,0 +1,53 @@
+table.greenTable {
+  font-family: Georgia, serif;
+
+  border-radius: 2px;
+  background-color: rgb(222, 238, 241);
+  width: 90%;
+  text-align: center;
+}
+table.greenTable td,
+table.greenTable th {
+  border: 1px solid rgb(99, 129, 255) ;
+  padding: 3px 2px;
+  border-radius: 10px;
+
+}
+table.greenTable tbody td {
+  font-size: 20px;
+}
+table.greenTable thead {
+  background: rgb(99, 129, 255) ;
+  background: -moz-linear-gradient(
+    rgb(184, 220, 223) 0%,
+    rgb(106, 184, 203) 69%,
+    rgb(99, 129, 255) 100%
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgb(184, 220, 223) 0%,
+    rgb(106, 184, 203) 69%,
+    rgb(99, 129, 255) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgb(184, 220, 223) 0%,
+    rgb(106, 184, 203) 69%,
+    rgb(99, 129, 255) 100%
+  );
+  border-bottom: 0px solid #444444;
+
+}
+table.greenTable thead th {
+  font-size: 19px;
+  font-weight: bold;
+  color: #f0f0f0;
+  border-left: 2px solid rgb(99, 129, 255) ;
+  border-radius: 200px;
+  text-align: center;
+}
+
+.image {
+  size: 15px;
+  max-block-size: 30px;
+}
