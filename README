@@ -1,13 +1,34 @@
 # react_todolist
 
 ## Description
-This is a simple website I wrote to test my skills with React.....(why I wrote it the way I did)
+This is a simple todo application, I used `React` for the Front-end. I designed this with classes using React.Component, 
+so the readability of the code is more clear. The Goal of this application was to make components and pass the state
+ that was needed to the components. 
+
+On my server, I used Node.js with Express.js. while Express.js handled my asynchronous query calls to my database.
+Manipulating data as needed for my database and front-end to recognize. Lastly I used postgresql as my database.
+
+I dockerized my psql server, and on initial build it will create the schema. This also adds baseline
+data(user, password, lists, and items) for testing purposes.
+Also dockerized my node.js server, making it install my node packages. I also made it so you have to be in the directory
+to make changes, and cannot add changes while interacting with the docker container. 
+I did this just for a bit more security. 
+
+
+## Priority Plans
+* Updating edge cases on creating user
+* Updating adding item to list, done column to true or false setting
+* Hosting website
+* Putting my server and database on the Google cloud services
+
 
 ## Future Plans
-* Encrypt all the things 
-* Increase speed by doing ....
-* Create Docker image
-* etc
+* Putting a background and making website more apealing
+* User settings/profile 
+* Random daily tasks on homepage. 
+* Hover description on buttons, to give discription
+* Add modal for lists when user is about to delete lists
+
 
 ## Dependencies
 dependency - "reason"
