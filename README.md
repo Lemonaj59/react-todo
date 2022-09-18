@@ -59,7 +59,7 @@ I did this just for a bit more security.
 
 
 ## Priority Plans
-*one command start
+* one command start
 * Updating edge cases on creating user.
 * Updating adding item to list so when selecting done column its a droppdown for  true or false setting.
 * Hosting website.
