@@ -33,7 +33,7 @@ HOST="POSTGRES PORT"
 ```
 
 lastly for setup, go to the package.json in the react-todo folder, and add the proxy server your or port your node server is going to run on.
-'''
+```
  {"scripts" ...}
  "proxy": "your server port here"
 ```
