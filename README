@@ -1,4 +1,47 @@
-# react_todolist
+# **react_todolist**
+
+## **startup**
+
+To start the web application you will need to install docker, And if you are on a linux machine, need to also install `docker-compose`.
+
+secondly you will need to create a `.env` file for your environment variable for the postgres client AND your secret for 'express-sessions'
+**client file (db.js)**
+
+```js
+const { Pool } = require("pg");
+
+let client = new Pool({
+  user: JSON.parse(process.env.USER),
+  host: JSON.parse(process.env.HOST),
+  database: JSON.parse(process.env.DATABASE),
+  password: JSON.parse(process.env.PASSWORD),
+  port: JSON.parse(process.env.DBPORT),
+});
+
+module.exports = client;
+
+```
+**.env file example**
+```
+SECRET="SECRET"
+USER="USER"
+DATABASE="DATABASE
+PASSWORD="PASSWORD
+DBPORT=PORT
+PORT=PORT
+HOST="POSTGRES PORT"
+```
+
+lastly for setup, go to the package.json in the react-todo folder, and add the proxy server your or port your node server is going to run on.
+'''
+ {"scripts" ...}
+ "proxy": "your server port here"
+```
+
+--next 
+Next go to the postgres server and run docker-compose up -d, the same with the server. and lastly run npm in run the react-todo directory!
+
+
 
 ## Description
 This is a simple todo application, I used `React` for the Front-end. I designed this with classes using React.Component, 
@@ -16,18 +59,19 @@ I did this just for a bit more security.
 
 
 ## Priority Plans
-* Updating edge cases on creating user
-* Updating adding item to list, done column to true or false setting
-* Hosting website
-* Putting my server and database on the Google cloud services
+*one command start
+* Updating edge cases on creating user.
+* Updating adding item to list so when selecting done column its a droppdown for  true or false setting.
+* Hosting website.
+* Putting my server and database on the Google cloud services.
 * adding docker swarm to my project, to keep my server up.
 
 ## Future Plans
-* Putting a background and making website more apealing
-* User settings/profile 
+* Putting a background and making website more apealing.
+* User settings/profile.
 * Random daily tasks on homepage. 
-* Hover description on buttons, to give discription
-* Add modal for lists when user is about to delete lists
+* Hover description on buttons, to give discription.
+* Add modal for lists when user is about to delete lists.
 
 
 ## Dependencies
