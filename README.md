@@ -32,6 +32,17 @@ PORT=PORT
 HOST="POSTGRES PORT"
 ```
 
+**./psql_server/docker-compose.yml**
+```
+environment:
+      - POSTGRES_USER=USER
+      - POSTGRES_PASSWORD=PASSWORD
+      - POSTGRES_DB=DB
+
+```
+Also need to set variables for postgreSQL username and password
+
+
 lastly for setup, go to the package.json in the react-todo folder, and add the proxy server your or port your node server is going to run on.
 ```
  {"scripts" ...}
