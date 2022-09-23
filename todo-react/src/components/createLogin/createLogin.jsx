@@ -11,6 +11,7 @@ class CreateNewUser extends React.Component {
       passwordMatch: null,
       isLoaded: false,
       error: null,
+      userTaken: null,
     };
     this.handleConfirmPasswordChange =
       this.handleConfirmPasswordChange.bind(this);
@@ -80,8 +81,11 @@ class CreateNewUser extends React.Component {
     } else if (!this.state.isLoaded) {
       return <div>Loading...</div>;
     } else if (this.state.passwordMatch === null) {
-      return (
+
+      if (this.state.userTaken === true) {
+        return (
         <div className="App">
+          <h1 className="warningText">Username taken, please pick another. </h1>
           <h1 className="text"> Create User</h1>
           <form>
             <label>
@@ -118,7 +122,49 @@ class CreateNewUser extends React.Component {
           </button>
         </div>
       );
-    } else if (!this.state.passwordMatch) {
+
+      } else {
+      return (
+
+        
+        <div className="App">
+          <h1 className="text"> Create User</h1>
+          <form>
+            <label>
+              Username:
+              <input
+                value={this.state.newUser}
+                onChange={this.handleNewUserChange}
+              />
+            </label>
+          </form>
+          <form>
+            <label>
+              {" "}
+              Password:
+              <input
+                value={this.state.password}
+                onChange={this.handlePasswordChange}
+              />
+            </label>
+          </form>
+          <form>
+            <label>
+              {" "}
+              Confirm password:
+              <input
+                value={this.state.passwordConfirm}
+                onChange={this.handleConfirmPasswordChange}
+              />
+            </label>
+          </form>
+
+          <button className="regularButton" onClick={() => this.handleClick()}>
+            create user
+          </button>
+        </div>
+      )}} else if (!this.state.passwordMatch) {
+
       return (
         <div className="App">
           <h1 className="text"> Create User</h1>
