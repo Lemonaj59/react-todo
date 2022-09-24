@@ -4,15 +4,16 @@ const client = require("../db");
 const session = require("express-session");
 
 router.use(function async(req, res, next) {
-
   next();
 });
 
 router
   .route("/")
   .get(async (req, res, next) => {
+
     if (req.session.user) {
-      let userId = req.session.user.userId;
+      let userId = await req.session.user.userId;
+
       res.json({ userId });
     } else {
       res.json(false);

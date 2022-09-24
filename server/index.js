@@ -9,7 +9,7 @@ const createUser = require("./routes/createUser");
 const loggedInStatus = require("./routes/loggedInStatus");
 let session = require("express-session");
 pgSession = require("connect-pg-simple")(session);
-const port2 = "127.17.0.1:5432";
+
 
 const port = process.env.PORT || 3001;
 
@@ -25,7 +25,7 @@ app.use(
     }),
     secret: process.env.SECRET,
     saveUninitialized: false,
-    resave: false,
+    resave: true,
     cookie: {
       secure: false,
       httpOnly: false,
@@ -50,5 +50,5 @@ app.use("/createUser", createUser);
 app.use("/loggedInStatus", loggedInStatus);
 
 app.listen(port, (err) =>
-  console.log(`listening on port ${port} ${process.env.HOST}`)
+  console.log(`listening on port ${port}`)
 );

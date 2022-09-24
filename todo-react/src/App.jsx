@@ -64,8 +64,9 @@ class App extends React.Component {
     let response = await fetch("/loggedInStatus");
     response = await response.json();
 
+
     if (response.userId) {
-      this.loggedIn({ userId: response.userId, sucess: true });
+      this.loggedIn(response.userId, true );
     }
   }
 

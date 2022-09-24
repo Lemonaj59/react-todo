@@ -11,7 +11,7 @@ class LoginPageComponent extends React.Component {
     this.state = {
       isLoaded: false,
       error: null,
-      userID: null,
+      userId: null,
     };
     this.redirect = this.redirect.bind(this);
   }
@@ -19,6 +19,7 @@ class LoginPageComponent extends React.Component {
   async componentDidMount() {
     await this.props.checkLoginStatus();
     let sucess = await this.props.logInSucess;
+
     if (sucess) {
       await this.redirect(true);
     } else {
@@ -29,6 +30,7 @@ class LoginPageComponent extends React.Component {
   async componentWillUnmount() {}
 
   async redirect(sucess, userId) {
+
     await this.props.loggedIn(userId, sucess);
     if (sucess) {
       this.props.navigation("homepage");
