@@ -22,8 +22,9 @@ class LoginForm extends React.Component {
     let sucess = response.sucess;
     let userId = response.userId;
 
-    this.setState(await { sucess: sucess, userID: userId });
+    this.setState(await { sucess: sucess, userId: userId });
     await this.props.redirect(sucess, userId);
+
   }
 
   async handleUserChange(event) {

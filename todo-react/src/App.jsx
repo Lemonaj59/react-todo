@@ -37,8 +37,9 @@ class App extends React.Component {
     this.setState({ selectedTodoList: "", typeOfTodoList: "" });
   }
 
-  async loggedIn(data) {
-    this.setState({ userId: data.userId, logInSucess: data.sucess });
+  async loggedIn(userId, sucess) {
+
+    this.setState({ userId: userId, logInSucess: sucess });
   }
 
   async logout() {

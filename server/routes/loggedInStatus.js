@@ -4,6 +4,7 @@ const client = require("../db");
 const session = require("express-session");
 
 router.use(function async(req, res, next) {
+
   next();
 });
 

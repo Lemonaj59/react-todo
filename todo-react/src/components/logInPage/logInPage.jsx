@@ -29,7 +29,7 @@ class LoginPageComponent extends React.Component {
   async componentWillUnmount() {}
 
   async redirect(sucess, userId) {
-    this.props.loggedIn(sucess, userId);
+    await this.props.loggedIn(userId, sucess);
     if (sucess) {
       this.props.navigation("homepage");
     }

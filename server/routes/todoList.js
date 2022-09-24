@@ -3,17 +3,18 @@ let router = express.Router();
 const client = require("../db");
 
 router.use(function async(req, res, next) {
-  console.log("i made it");
   next();
 });
 
 router
   .route("/:id")
   .get(async (req, res) => {
-    let userId = req.params.id;
+
+    let userId = await req.params.id;
+
 
     let allTodos = await client.query(
-      `SELECT list_name, list_id, list_type FROM lists WHERE user_id = ${userId}`
+      `SELECT list_name, list_id, list_type FROM public.lists WHERE user_id = ${userId}`
     );
     let todoNames = allTodos.rows.map((item) => {
       return { item: item.list_name, id: item.list_id, type: item.list_type };
@@ -25,7 +26,7 @@ router
     const todoID = await req.body;
     let name = [todoID.todoList];
     let nameID = await client.query(
-      `SELECT list_id FROM lists WHERE list_name = $1`,
+      `SELECT list_id FROM public.lists WHERE list_name = $1`,
       name
     );
     nameID = nameID.rows[0];
@@ -44,7 +45,7 @@ router
     let tittle = await newItem.title;
     let type = await changeType[newItem["type"]];
     let id = req.params.id;
-    let queryText = "INSERT INTO lists VALUES(DEFAULT, $1, $2, $3)";
+    let queryText = "INSERT INTO public.lists VALUES(DEFAULT, $1, $2, $3)";
     let queryValues = [id, tittle, type];
 
     try {
@@ -60,7 +61,7 @@ router
     const userId = await req.params.id;
 
     let queryValues = [listId, userId];
-    let queryText = "DELETE FROM lists WHERE list_id = $1 AND user_id = $2";
+    let queryText = "DELETE FROM public.lists WHERE list_id = $1 AND user_id = $2";
 
     await client.query(queryText, queryValues);
 
@@ -73,7 +74,7 @@ router
 
     let queryValues = [listId, newName, userId];
     let queryText =
-      "UPDATE lists SET list_name = $2 WHERE list_id = $1 AND user_id = $3";
+      "UPDATE public.lists SET list_name = $2 WHERE list_id = $1 AND user_id = $3";
     await client.query(queryText, queryValues);
 
     res.sendStatus(200);

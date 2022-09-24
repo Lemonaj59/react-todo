@@ -10,10 +10,9 @@ router.route("/").post(async (req, res, next) => {
   const userInput = await req.body;
   const password = userInput.password;
 
-  let text = `SELECT username, auths_id FROM auths WHERE user_password = $1`;
+  let text = `SELECT username, auths_id FROM public.auths WHERE user_password = $1`;
   let value = [password];
   let userInfo = await client.query(text, value);
-
   if (userInfo.rows[0] === undefined) {
     await res.json({ sucess: false });
   } else {

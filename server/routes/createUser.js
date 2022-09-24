@@ -11,7 +11,7 @@ router
   .post(async (req, res) => {
     const newUser = req.body;
 
-    let text = `SELECT username FROM auths WHERE username = $1`;
+    let text = `SELECT username FROM public.auths WHERE username = $1`;
     let values = [newUser.username];
 
     let haveUser = await client.query(text, values);
@@ -26,7 +26,7 @@ router
     let password = newUser.password;
 
     let values = [username, password];
-    let text = `INSERT INTO auths VALUES(DEFAULT, $1, $2)`;
+    let text = `INSERT INTO public.auths VALUES(DEFAULT, $1, $2)`;
 
     await client.query(text, values);
   });

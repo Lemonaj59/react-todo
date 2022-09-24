@@ -81,10 +81,12 @@ class Todolist extends React.Component {
   //checks if user is already logged in using sessions, if not, will
   //be navigated back to loginPage, else, will show all of their todoLists
   async componentDidMount() {
+
     await this.props.checkLoginStatus();
     if (!this.props.userId) {
       this.props.navigation("../");
     }
+
     let response = await fetch(`/todo/${this.props.userId}`);
     response = await response.json();
 

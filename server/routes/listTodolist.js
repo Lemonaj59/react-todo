@@ -69,7 +69,6 @@ router
     const sqlOptions = options.map((option) => getKey(option).toString());
     let values = Object.values(item);
     let newValues = [values[0], values[1], values[2], false, values[4]];
-
     let text = `INSERT INTO list_items (${sqlOptions}) VALUES ($1, $2, $3, $4, $5)`;
 
     await client.query(text, newValues);
